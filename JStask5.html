@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSTask8</title>
+</head>
+<body>
+    <form onsubmit="return validate()" class="form" id="form1">
+        <table>
+            <tr>
+                <td style="text-align: right;">
+                    <label for="fn">Name</label>
+                </td>
+                <td style="padding: 5px 10px;" id="fncell">
+                    <input type="text" name="fn" id="fn" style="width: 100%;" required />
+                </td>
+                <td>
+                    <p id="invalid-name"></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    <label for="email">Email</label>
+                </td>
+                <td style="padding: 5px 10px;">
+                    <input type="email" name="email" id="email" style="width: 100%;" required/>
+                </td>
+                <td><p id="invalid-email"></p></td>
+            </tr>
+
+            <tr>
+                <td style="text-align: right;">
+                    <label for="pwd"><b>Website</b></label>
+                </td>
+                <td style="padding: 5px 10px;">
+                    <input type="url" id="web" name="website" style="width: 100%;" required/>
+                </td>
+                <td><p id="invalid-web"></p></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    <label for="addr"><b>Message</b></label>
+                </td>
+                <td style="padding: 5px 10px;">
+                    <textarea rows="5" cols="37" name="mess" id="mess" required></textarea>
+                </td>
+                <td><p id="invalid-msg"></p></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <center><input type="submit" value="Register" /></center>
+                </td>
+            </tr>
+    </table>
+    </form>
+            <a href="./index.html">Index page</a>
+<script>
+    function validate(){
+        var a = document.getElementById("fn").value;
+        var b = document.getElementById("email").value;
+        var c = document.getElementById("web").value;
+        var d = document.getElementById("mess").value;
+        var atposition=b.indexOf("@");  
+        var dotposition=b.lastIndexOf(".");
+        var dotweb=c.lastIndexOf(".");  
+        if(a.length < 1){
+            document.getElementById("fn").style.border="2px solid red";
+            document.getElementById("invalid-name").innerHTML="This field is required.";
+            document.getElementById("invalid-name").style.color="red";
+            return false
+        }
+        else {
+            if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){
+            document.getElementById("email").style.border="2px solid red"
+            document.getElementById("invalid-email").innerHTML="Please enter a valid e-mail address";
+            document.getElementById("invalid-email").style.color="red";
+            return false
+        }
+        else{
+            if(c.length<1){
+            document.getElementById("web").style.border="2px solid red"
+            document.getElementById("invalid-web").innerHTML="Please enter a valid website address";
+            document.getElementById("invalid-web").style.color="red";
+            return false
+        }
+        else{
+            if(d.length < 1){
+            document.getElementById("mess").style.border="2px solid red";
+            document.getElementById("invalid-msg").innerHTML="This field is required.";
+            document.getElementById("invalid-msg").style.color="red";
+            return false
+        }
+        }
+        }
+    }
+}
+</script>
+</body>
+</html>
